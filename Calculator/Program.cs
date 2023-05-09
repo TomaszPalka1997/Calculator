@@ -8,7 +8,7 @@ namespace Calculator.ConsoleApp
         {
             Console.WriteLine("Witaj w Kalulatorze!");
             while (true)
-            {
+            { 
                 
                 try
                 {
@@ -23,7 +23,7 @@ namespace Calculator.ConsoleApp
                         Console.WriteLine("podaj druga liczbne");
                         var number2 = GetInput();
 
-                        int result = Calculate(number1, number2, operation);
+                        float result = Calculate(number1, number2, operation);
 
                         Console.WriteLine($"wynik: {result}");
 
@@ -37,15 +37,15 @@ namespace Calculator.ConsoleApp
             }
         }
 
-        private static int GetInput()
+        private static float GetInput()
         {
-            if (int.TryParse(Console.ReadLine(), out int input))
+            if (float.TryParse(Console.ReadLine(), out float input))
                 return input;
             else
                 throw new Exception("Podana wartosc nie jest liczba");
         }
 
-        private static int Calculate(int number1, int number2, string operation)
+        private static float Calculate(float number1, float number2, string operation)
         {
             switch (operation)
             {
