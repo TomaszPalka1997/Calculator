@@ -1,66 +1,59 @@
 ﻿using System;
 
-namespace Calculator.ConsoleApp
+
+Console.WriteLine("Welcome in the Calculator!");
+while (true)
 {
-    class Program
+    Console.WriteLine("flag");
+    try
     {
-        static void Main(string[] args)
+        while (true)
         {
-            Console.WriteLine("Witaj w Kalulatorze!");
-            while (true)
-            { 
-                
-                try
-                {
-                    while (true)
-                    {
-                        Console.WriteLine("podaj pierwsza liczbne");
-                        var number1 = GetInput();
+            Console.WriteLine("Type first number");
+            var number1 = GetInput();
 
-                        Console.WriteLine("podaj dzialanie: '+', '-', '*', '/'");
-                        var operation = Console.ReadLine();
+            Console.WriteLine("Type operation sign: '+', '-', '*', '/'");
+            var operation = Console.ReadLine();
 
-                        Console.WriteLine("podaj druga liczbne");
-                        var number2 = GetInput();
+            Console.WriteLine("Type second number");
+            var number2 = GetInput();
 
-                        float result = Calculate(number1, number2, operation);
+            float result = Calculate(number1, number2, operation);
 
-                        Console.WriteLine($"wynik: {result}");
+            Console.WriteLine($"Result: {result}");
 
-                    }
-                }
-                catch (Exception ex)
-                {
-
-                    Console.WriteLine(ex.Message);
-                }
-            }
         }
+    }
+    catch (Exception ex)
+    {
 
-        private static float GetInput()
-        {
-            if (float.TryParse(Console.ReadLine(), out float input))
-                return input;
-            else
-                throw new Exception("Podana wartosc nie jest liczba");
-        }
+        Console.WriteLine(ex.Message);
+    }
+}
 
-        private static float Calculate(float number1, float number2, string operation)
-        {
-            switch (operation)
-            {
-                case "+":
-                    return number1 + number2;
-                case "-":
-                    return number1 - number2;
-                case "*":
-                    return number1 * number2;
-                case "/":
-                    return number1 / number2;
-                default:
-                    throw new Exception("zly znak operacji");
 
-            }
-        }
+static float GetInput()
+{
+    if (float.TryParse(Console.ReadLine(), out float input))
+        return input;
+    else
+        throw new Exception("Typed value is not a number");
+}
+
+static float Calculate(float number1, float number2, string operation)
+{
+    switch (operation)
+    {
+        case "+":
+            return number1 + number2;
+        case "-":
+            return number1 - number2;
+        case "*":
+            return number1 * number2;
+        case "/":
+            return number1 / number2;
+        default:
+            throw new Exception("Wrong operation sign");
+
     }
 }
