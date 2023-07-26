@@ -4,7 +4,6 @@
 Console.WriteLine("Welcome in the Calculator!");
 while (true)
 {
-    Console.WriteLine("flag");
     try
     {
         while (true)
